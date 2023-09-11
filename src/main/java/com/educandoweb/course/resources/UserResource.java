@@ -13,7 +13,7 @@ import com.educandoweb.course.entities.User;
 import com.educandoweb.course.services.UserService;
 
 
-@RestController
+@RestController /*Utilizamos @RestController ao invés de @Controller, pois queremos que o retorno seja em um formato desejado como JSON ou XML, se usásemos o @Controller teríamos o retorno como uma String*/
 @RequestMapping("/users")
 public class UserResource {
 	
@@ -22,7 +22,7 @@ public class UserResource {
 	
 	@GetMapping
 	public ResponseEntity<List<User>> findAll(){
-		List<User> list = service.findAll(); 
+		List<User> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 	
